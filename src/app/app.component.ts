@@ -9,4 +9,7 @@ export class AppComponent {
 
   constructor() { }
 
+  countdounFinish(){
+    alert('all done');
+  }
 }
