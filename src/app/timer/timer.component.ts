@@ -34,4 +34,5 @@ export class TimerComponent implements OnInit, OnDestroy {
     this.timerService.destroy();
     this.countdownEndSubscription.unsubscribe();
   }
+
 }
