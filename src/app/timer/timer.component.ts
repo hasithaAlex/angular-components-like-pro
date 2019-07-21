@@ -18,7 +18,11 @@ import { Subscription } from "rxjs/Subscription";
 export class TimerComponent implements OnInit, OnDestroy {
   @Output() onComplete = new EventEmitter<void>();
   @Input() init: number = 20;
+
   private countdownEndSubscription: Subscription = null;
+
+  private countdownSubscription: Subscription = null;
+  public coutdown: number = 0;
 
   constructor(public timerService: TimerService) {}
 
@@ -28,11 +32,19 @@ export class TimerComponent implements OnInit, OnDestroy {
       console.log("====countdown end==");
       this.onComplete.emit();
     });
+
+    this.countdownSubscription = this.timerService.countdown$
+    .subscribe((data) => { this.coutdown = data; });
   }
 
   ngOnDestroy(): void {
     this.timerService.destroy();
     this.countdownEndSubscription.unsubscribe();
+    this.countdownSubscription.unsubscribe();
   }
 
+
+  get progress(){
+    return ((this.init - (this.coutdown)) / this.init * 100);
+  }
 }
