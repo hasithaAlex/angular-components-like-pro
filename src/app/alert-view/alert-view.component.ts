@@ -6,11 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./alert-view.component.scss']
 })
 export class AlertViewComponent implements OnInit {
-
-  @Output() onCancel = new EventEmitter<void>();
-  @Output() onSubmit = new EventEmitter<number>();
-
-
+ 
   constructor() { }
 
   ngOnInit() {
