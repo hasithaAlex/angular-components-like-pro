@@ -8,18 +8,36 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   public isAddTimerVisible:boolean = false;
-  public time:number = 0;
-  constructor() { }
+  public time: number = 0;
+  public timers: Array<number> = [];
+  public isTimerFinish: boolean = false;
 
-  countdounFinish(){
-    alert('all done');
+  constructor() {
+    this.timers = [3, 20, 185];
+
+   }
+
+  public timerFinish(){
+    this.showTimerFinish();
   }
 
-  showAddTimer(){
+  public showAddTimer(){
     this.isAddTimerVisible = true;
   }
 
-  hideAddTimer(){
+  public hideAddTimer(){
     this.isAddTimerVisible = false;
+  }
+
+  public showTimerFinish(){
+    this.isTimerFinish = true;
+  }
+
+  public hideTimerFinish(){
+    this.isTimerFinish = false;
+  }
+  public submitAddTimer(){
+    this.timers.push(this.time);
+    this.hideAddTimer();
   }
 }
