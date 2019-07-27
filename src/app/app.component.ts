@@ -7,9 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  public isAddTimerVisible:boolean = false;
+  public time:number = 0;
   constructor() { }
 
   countdounFinish(){
     alert('all done');
+  }
+
+  showAddTimer(){
+    this.isAddTimerVisible = true;
+  }
+
+  hideAddTimer(){
+    this.isAddTimerVisible = false;
   }
 }
